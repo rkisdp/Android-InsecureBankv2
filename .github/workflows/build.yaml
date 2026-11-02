@@ -37,13 +37,15 @@ jobs:
         with:
           java-version: 1.8
       - name: Grant execute permission for gradlew
+        working-directory: InsecureBankv2
         run: chmod +x gradlew
       - name: Build the app
+        working-directory: InsecureBankv2
         run: ./gradlew bundle
       - uses: actions/upload-artifact@v4
         with:
           name: mfva.aab
-          path: app/build/outputs/bundle/debug/app.aab
+          path: InsecureBankv2/app/build/outputs/bundle/debug/app.aab
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
@@ -63,7 +65,7 @@ jobs:
         id: appknox_scan
         continue-on-error: true
         run: |
-          FILE_ID=$(./bin/appknox upload app/build/outputs/bundle/debug/app.aab --knoxiq)
+          FILE_ID=$(./bin/appknox upload InsecureBankv2/app/build/outputs/bundle/debug/app.aab --knoxiq)
           echo "Uploaded file id: $FILE_ID"
           echo "file_id=$FILE_ID" >> "$GITHUB_OUTPUT"
           ./bin/appknox cicheck "$FILE_ID" --risk-threshold "${RISK_THRESHOLD}"
