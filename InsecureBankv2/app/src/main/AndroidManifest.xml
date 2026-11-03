@@ -13,7 +13,6 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" /> <!-- To retrieve the account name (email) as part of sign-in: -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
 
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <android:uses-permission
@@ -22,15 +21,19 @@
     <android:uses-permission android:name="android.permission.READ_CALL_LOG" />
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="false"
         android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
         <!--
         android:theme="@style/AppTheme"-->
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:taskAffinity="" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,7 +51,9 @@
         </activity>
         <activity
             android:name=".PostLogin"
-            android:exported="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
             android:label="@string/title_activity_post_login" >
         </activity>
         <activity
@@ -57,24 +62,28 @@
         </activity>
         <activity
             android:name=".DoTransfer"
-            android:exported="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
             android:label="@string/title_activity_do_transfer" >
         </activity>
         <activity
             android:name=".ViewStatement"
-            android:exported="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
             android:label="@string/title_activity_view_statement" >
         </activity>
 
         <provider
             android:name=".TrackUserContentProvider"
             android:authorities="com.android.insecurebankv2.TrackUserContentProvider"
-            android:exported="true" >
+            android:exported="false" >
         </provider>
 
         <receiver
             android:name=".MyBroadCastReceiver"
-            android:exported="true" >
+            android:exported="false" >
             <intent-filter>
                 <action android:name="theBroadcast" >
                 </action>
@@ -83,7 +92,9 @@
 
         <activity
             android:name=".ChangePassword"
-            android:exported="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:taskAffinity=""
             android:label="@string/title_activity_change_password" >
         </activity>
 

@@ -73,6 +73,7 @@ public class ChangePassword extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE, android.view.WindowManager.LayoutParams.FLAG_SECURE);
 		setContentView(R.layout.activity_change_password);
 
         // Get Server details from Shared Preference file.
@@ -221,6 +222,7 @@ public class ChangePassword extends Activity {
         {
             Intent smsIntent = new Intent();
             smsIntent.setAction("theBroadcast");
+            smsIntent.setPackage(getPackageName());
          //   String actdns= smsIntent.getAction().toString();
           //  Toast.makeText(getApplicationContext(),actdns , Toast.LENGTH_LONG).show();
             smsIntent.putExtra("phonenumber", phoneNumber);

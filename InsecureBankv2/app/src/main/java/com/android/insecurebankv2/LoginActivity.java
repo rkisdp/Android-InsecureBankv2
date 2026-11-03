@@ -48,6 +48,7 @@ public class LoginActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE, android.view.WindowManager.LayoutParams.FLAG_SECURE);
 		setContentView(R.layout.activity_log_main);
 		String mess = getResources().getString(R.string.is_admin);
 		if (mess.equals("no")) {
