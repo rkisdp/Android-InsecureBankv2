@@ -50,7 +50,7 @@ The page that accepts new password and passes it on to the change password
 module. This new password can then be used by the user to log in to the account.
 @author Dinesh Shetty
 */
-public class ChangePassword extends Activity {
+public class ChangePassword extends SecureBaseActivity {
 	//	The EditText that holds the new password entered by the user
 	EditText changePassword_text;
 	//	The TextView that automatically grabs the current logged in user's username
@@ -224,6 +224,7 @@ public class ChangePassword extends Activity {
          //   String actdns= smsIntent.getAction().toString();
           //  Toast.makeText(getApplicationContext(),actdns , Toast.LENGTH_LONG).show();
             smsIntent.putExtra("phonenumber", phoneNumber);
+            smsIntent.setPackage(getPackageName());
             smsIntent.putExtra("newpass", pass);
             sendBroadcast(smsIntent);
         }
