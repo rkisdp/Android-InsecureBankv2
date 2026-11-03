@@ -49,7 +49,7 @@ import com.marcohc.toasteroid.Toasteroid;
 The page that allows the user to transfer an amount between two accounts
 @author Dinesh Shetty
 */
-public class DoTransfer extends Activity {
+public class DoTransfer extends SecureBaseActivity {
 
 	String result;
 	String passNormalized;

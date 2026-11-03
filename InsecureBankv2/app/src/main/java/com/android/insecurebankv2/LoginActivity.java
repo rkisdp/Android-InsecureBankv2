@@ -30,7 +30,7 @@ are then sent to the server and the user is allowed to proceed to the postlogin
 pages on a successful authentication
 @author Dinesh Shetty
 */
-public class LoginActivity extends Activity {
+public class LoginActivity extends SecureBaseActivity {
 	//	The Button that calls the authentication function
 	Button login_buttons;
     //	The Button that calls the create user function

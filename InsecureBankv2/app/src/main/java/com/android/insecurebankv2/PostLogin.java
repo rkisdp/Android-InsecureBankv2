@@ -28,7 +28,7 @@ View Statement: Module that allows the user to view transaction history for the 
 Change Password:  Module that allows the logged in user to change the password
 @author Dinesh Shetty
 */
-public class PostLogin extends Activity {
+public class PostLogin extends SecureBaseActivity {
 	//	The Button that handles the transfer activity
 	Button transfer_button;
     //  The Textview that handles the root status display

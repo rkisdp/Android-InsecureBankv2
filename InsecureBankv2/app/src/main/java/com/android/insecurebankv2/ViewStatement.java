@@ -18,12 +18,13 @@ import java.io.File;
 The page that allows the user to view transaction history for the logged in user
 @author Dinesh Shetty
 */
-public class ViewStatement extends Activity {
+public class ViewStatement extends SecureBaseActivity {
 	String uname;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_statement);
+		getWindow().getDecorView().getRootView().setFilterTouchesWhenObscured(true);
 		Intent intent = getIntent();
 		uname = intent.getStringExtra("uname");
 		//String statementLocation=Environment.getExternalStorageDirectory()+ "/Statements_" + uname + ".html";
