@@ -23,7 +23,9 @@ public class ViewStatement extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setFlags(android.view.WindowManager.LayoutParams.FLAG_SECURE, android.view.WindowManager.LayoutParams.FLAG_SECURE);
 		setContentView(R.layout.activity_view_statement);
+		getWindow().getDecorView().getRootView().setFilterTouchesWhenObscured(true);
 		Intent intent = getIntent();
 		uname = intent.getStringExtra("uname");
 		//String statementLocation=Environment.getExternalStorageDirectory()+ "/Statements_" + uname + ".html";
